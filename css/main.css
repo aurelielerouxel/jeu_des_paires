@@ -86,11 +86,12 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-/* General rules */
-
-
-
 /* Utility classes */
+
+
+
+
+/* General rules */
 
 
 
@@ -102,11 +103,30 @@ textarea {
 
 
 
+/* Main */
+/* main {
+  height: 100vh;
+} */
+
+.card-body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 20%;
+  height: auto;
+}
+
 /* Index */
 
 
 
 /* Single */
+
+
+
+/* Media queries */
 
 
 
