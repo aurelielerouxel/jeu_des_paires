@@ -104,18 +104,16 @@ textarea {
 
 
 /* Main */
-/* main {
-  height: 100vh;
-} */
-
-.card-body {
+main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  width: 20%;
-  height: auto;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+div {
+  width: 128px;
 }
 
 /* Index */
@@ -127,6 +125,7 @@ textarea {
 
 
 /* Media queries */
+
 
 
 
