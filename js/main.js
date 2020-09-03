@@ -53,13 +53,14 @@ let back = document.getElementsByClassName("back");
 
                     // si toutes les cartes sont retournée (2ème array = 6) alors fin de partie
                     if (pair.length === 6) {
-                        alert("Well done !");
+                        alert("Well done ! End of game !");
                     }
                 }
                 // s'ils sont différents
                 else {
                     console.log("nul");
                     choices[0].src = "img/card.png";
+                    // set time out
                     choices[1].src = "img/card.png";
                     choices.pop(this);
                     choices.pop(this);              
@@ -67,4 +68,5 @@ let back = document.getElementsByClassName("back");
             }
         })
     }
+    // recommencer une partie
 // }
