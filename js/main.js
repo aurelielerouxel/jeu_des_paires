@@ -60,7 +60,6 @@ let back = document.getElementsByClassName("back");
                 else {
                     console.log("nul");
                     choices[0].src = "img/card.png";
-                    // set time out
                     choices[1].src = "img/card.png";
                     choices.pop(this);
                     choices.pop(this);              
