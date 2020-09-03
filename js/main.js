@@ -16,9 +16,6 @@ let imgFront = [
 ];
 
 let back = document.getElementsByClassName("back");
-console.log(back);
-// let front = document.getElementsByClassName("front");
-// console.log(front);
 
 // si back est afficher, au clic, afficher front
 // function game() {
@@ -31,11 +28,43 @@ console.log(back);
     //     });
     //     console.log(card);
     // }
+
+    let choices = [];
+    let pair = [];
+
     for(let i=0; i<back.length; i++) {
         back[i].addEventListener('click', function() {
             let imgRandom = imgFront[i];
             this.src = imgRandom;
-            // alert(i);
+            choices.push(this);
+            console.log(choices);
+
+            // si deux éléments se trouvent dans le tableau 
+            if (choices.length == 2) {  // modulo ???
+
+                // alors on compare les éléments
+                // s'ils sont identiques
+                if (choices[0].src === choices[1].src) {
+                    console.log("BG");
+                    pair.push(this);
+                    console.log(pair);
+                    choices.pop(this);
+                    choices.pop(this); 
+
+                    // si toutes les cartes sont retournée (2ème array = 6) alors fin de partie
+                    if (pair.length === 6) {
+                        alert("Well done !");
+                    }
+                }
+                // s'ils sont différents
+                else {
+                    console.log("nul");
+                    choices[0].src = "img/card.png";
+                    choices[1].src = "img/card.png";
+                    choices.pop(this);
+                    choices.pop(this);              
+                }
+            }
         })
     }
 // }
