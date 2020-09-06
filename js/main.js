@@ -1,5 +1,4 @@
 // Au clic supprimer le hidden du front et le mettre sur le back
-
 let imgFront = [
     'img/css.png', 
     'img/github.png',
@@ -17,13 +16,18 @@ let imgFront = [
 
 let back = document.getElementsByClassName("back");
 
-    let choices = [];
-    let pair = [];
-    let drawCard = [];
-    let score = 0;
-    
+let choices = [];
+let pair = [];
+let drawCard = [];
+let score = 0;
+let coups = 1;
 
-// positionnement aléatoire des cartes du tableau
+// function jouer() { 
+//     alert("Bonjour");
+//     console.log(jouer);
+//     console.log(alert);
+// 
+    // positionnement aléatoire des cartes du tableau
     for(let i=0; i<back.length; i++) {
         back[i].addEventListener('click', function() {
             let imgRandom = imgFront[Math.floor(Math.random() * [i])];
@@ -44,15 +48,17 @@ let back = document.getElementsByClassName("back");
                     choices.pop(this);
                     choices.pop(this); 
                     score++;
+                    coups--;
 
                     // impossibilité au double-clic sur une même carte
-                    // si la carte est côté front, ne pas pouvoir recliquer sur la carte
+                    // (si la carte est côté front, ne pas pouvoir recliquer sur la carte)
 
                     // si toutes les cartes sont retournée (2ème array = 6) alors fin de partie
                     if (pair.length === 6) {
                         alert("Well done ! End of game !");
                     }
                 }
+
                 // s'ils sont différents
                 else {
                     console.log("Tnul");
@@ -64,29 +70,46 @@ let back = document.getElementsByClassName("back");
                         choices.pop(this);
                         choices.pop(this);
                         score++; 
+                        coups--;
                     }, 500);          
                 }
 
                 // Affiche le nombre de coups sur une partie
                 console.log(score);
                 document.getElementById("score").innerHTML = "Score : " + score;
-                
+
+                // Difficulté avec un nombre de coups maximum
+                document.getElementById("coups").innerText = "Coups : " + coups;
+                if (coups === 0) {
+                    alert("Game over");
+                    console.log("looser");
+                }             
             }
         })      
     }
-            // Difficuté avec un temps limité
-            let timer = document.getElementById("timer");
-            let sec = 5;
+
+    // Difficuté avec un temps limité
+    let timer = document.getElementById("timer");
+    let sec = 5;
             
-            var time = setInterval(function() {
-                sec--;
-                // console.log(sec);
-                timer.innerText = sec; 
-                // console.log(timer.innerText); 
-                if (sec === 0) {
-                    alert("Game over");
-                    clearInterval(time);
-                }    
-            }, 1000);
+    let time = setInterval(function() {
+        sec--;
+        // console.log(sec);
+        timer.innerText = sec; 
+        // console.log(timer.innerText); 
+        if (sec === 0) {
+            alert("Game over");
+            clearInterval(time);
+        }    
+    }, 1000);
+
+// }
            
-    // recommencer une partie
+// recommencer une partie
+// function main() {  
+//     continuer = true;        
+//     while ( continuer ) {          
+//         jouer();          
+//         continuer = confirm("Veux tu continuer ?");             
+//     }
+// }
